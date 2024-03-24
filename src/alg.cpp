@@ -50,6 +50,6 @@ int countPairs3(int* arr, int len, int value) {
                 rightborder = center - 1;
             }
         }
-        return count;
     }
+    return count;
 }
