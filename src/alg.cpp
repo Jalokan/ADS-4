@@ -26,10 +26,10 @@ int countPairs2(int* arr, int len, int value) {
 }
 int countPairs3(int* arr, int len, int value) {
     int count = 0;
-    int leftborder = 0;
-    int rightborder = len - 1;
     for (int c = 0; c < len - 1; c++) {
-        while (leftborder <= rightborder) {
+        int leftborder = c;
+        int rightborder = len;
+        while (leftborder <= rightborder - 1) {
             int center = (leftborder + rightborder) / 2;
             if ((*(arr + c) + *(arr + center)) == value) {
                 count++;
@@ -43,6 +43,7 @@ int countPairs3(int* arr, int len, int value) {
                     count++;
                     j++;
                 }
+                break
             } else if (*(arr + center) < value) {
                 leftborder = center + 1;
             } else {
