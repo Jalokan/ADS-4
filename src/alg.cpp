@@ -43,7 +43,7 @@ int countPairs3(int* arr, int len, int value) {
                     count++;
                     j++;
                 }
-                break
+                break;
             } else if (*(arr + center) < value) {
                 leftborder = center + 1;
             } else {
