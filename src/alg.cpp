@@ -29,25 +29,25 @@ int countPairs3(int* arr, int len, int value) {
     for (int c = 0; c < len - 1; c++) {
         int leftborder = c;
         int rightborder = len;
-        while (leftborder <= rightborder - 1) {
+        while (leftborder < rightborder - 1) {
             int center = (leftborder + rightborder) / 2;
             if ((*(arr + c) + *(arr + center)) == value) {
                 count++;
                 int i = center - 1;
-                while ((*(arr + c) + *(arr + (i))) == value) {
+                while ((*(arr + c) + *(arr + (i))) == value && i > leftborder) {
                     count++;
                     i--;
                 }
                 int j = center + 1;
-                while ((*(arr + c) + *(arr + (j))) == value) {
+                while ((*(arr + c) + *(arr + (j))) == value && j < rightborder) {
                     count++;
                     j++;
                 }
                 break;
-            } else if (*(arr + center) < value) {
-                leftborder = center + 1;
+            } else if ((*(arr + c) + *(arr + center)) < value) {
+                leftborder = center;
             } else {
-                rightborder = center - 1;
+                rightborder = center;
             }
         }
     }
