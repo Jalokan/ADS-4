@@ -39,7 +39,7 @@ int countPairs3(int* arr, int len, int value) {
                     i--;
                 }
                 int j = center + 1;
-                while ((*(arr + c) + *(arr + (j))) == value && j < rightborder) {
+                while (*(arr + c) + *(arr + (j)) == value && j < rightborder) {
                     count++;
                     j++;
                 }
